@@ -5,7 +5,7 @@ import {
     ArrowRight, CheckCircle2, Cloud, Code, Database,
     Lock, Monitor, Cpu, Server, Settings, Users,
     Zap, BarChart, Shield, Terminal, Globe, Target, Clock,
-    Search, PenTool, Code2, Bug, Rocket, RefreshCw, FileText, Layout, ShieldCheck, CloudLightning, Headphones, Handshake,
+    Search, PenTool, Code2, Bug, Rocket, RefreshCw, FileText, Layout, ShieldCheck, CloudLightning, Headphones, HelpingHand,
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -435,7 +435,7 @@ const Home = () => {
                         <div className="relative group">
                             <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
                             <div className="relative h-20 w-20 bg-white/5 rounded-full border border-white/10 flex items-center justify-center shadow-2xl backdrop-blur-sm">
-                                <Handshake className="h-10 w-10 text-blue-400 group-hover:text-blue-300 transition-colors" />
+                                <HelpingHand className="h-10 w-10 text-blue-400 group-hover:text-blue-300 transition-colors" />
                             </div>
                         </div>
                     </div>

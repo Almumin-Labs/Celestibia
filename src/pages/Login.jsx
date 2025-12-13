@@ -9,6 +9,7 @@ import { Loader2, ArrowRight } from 'lucide-react';
 
 const Login = () => {
     const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
     const { login } = useAuth();
@@ -29,7 +30,9 @@ const Login = () => {
 
         // Simulate API call
         setTimeout(() => {
-            login(email);
+            // DEMO MODE: Allow any user to login as Admin
+            // In a real app, this would validate against a backend
+            login(email, 'admin');
             setIsLoading(false);
             navigate('/dashboard');
         }, 1000);
@@ -51,8 +54,8 @@ const Login = () => {
             >
                 <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl">
                     <div className="text-center mb-8">
-                        <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
-                        <p className="text-white/60">Enter your email to access your dashboard</p>
+                        <h1 className="text-3xl font-bold text-white mb-2">Admin Access</h1>
+                        <p className="text-white/60">Demo Mode: Any email & password works</p>
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-6">
@@ -61,14 +64,30 @@ const Login = () => {
                             <Input
                                 id="email"
                                 type="email"
-                                placeholder="name@company.com"
+                                placeholder="admin@celestibia.com"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-blue-500 focus:ring-blue-500/20"
                                 required
                             />
-                            {error && <p className="text-red-400 text-sm mt-1">{error}</p>}
                         </div>
+
+                        <div className="space-y-2">
+                            <div className="flex items-center justify-between">
+                                <Label htmlFor="password" classname="text-white/90">Password</Label>
+                            </div>
+                            <Input
+                                id="password"
+                                type="password"
+                                placeholder="••••••••"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-blue-500 focus:ring-blue-500/20"
+                                required
+                            />
+                        </div>
+
+                        {error && <p className="text-red-400 text-sm mt-1 bg-red-500/10 p-2 rounded border border-red-500/20 text-center">{error}</p>}
 
                         <Button
                             type="submit"
@@ -78,11 +97,11 @@ const Login = () => {
                             {isLoading ? (
                                 <>
                                     <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                                    Signing in...
+                                    Verifying...
                                 </>
                             ) : (
                                 <>
-                                    Continue <ArrowRight className="ml-2 h-5 w-5" />
+                                    Login to Dashboard <ArrowRight className="ml-2 h-5 w-5" />
                                 </>
                             )}
                         </Button>

@@ -30,7 +30,7 @@ const Navbar = () => {
     { name: 'Industry', href: '/industry', hasDropdown: true },
     { name: 'Resources', href: '/resources', hasDropdown: true },
     { name: 'About Us', href: '/about', hasDropdown: false },
-    { name: 'Request a demo', href: '/contact', hasDropdown: false },
+    { name: 'Blog', href: '/blog', hasDropdown: false },
   ];
 
   const isLightPage = location.pathname === '/about';
@@ -39,6 +39,10 @@ const Navbar = () => {
   const logoBg = 'bg-white text-black';
   const logoText = 'text-white';
   const borderColor = 'border-white/5';
+
+  if (location.pathname.startsWith('/dashboard')) {
+    return null;
+  }
 
   return (
     <nav
@@ -55,9 +59,11 @@ const Navbar = () => {
           <div className="flex items-center gap-10">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 group">
-              <div className={`w-8 h-8 rounded-sm flex items-center justify-center font-bold text-lg group-hover:scale-105 transition-transform ${logoBg}`}>
-                C
-              </div>
+              <img
+                src="/src/assets/logo.jpeg.png"
+                alt="Celestibia Logo"
+                className="w-10 h-10 object-contain rounded-md group-hover:scale-105 transition-transform"
+              />
               <span className={`text-xl font-bold tracking-wide ${logoText}`}>
                 Celestibia
               </span>
