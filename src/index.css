@@ -2,240 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --brand-start: #5a4bff;   /* Deep Purple-Blue */
-  --brand-mid:   #4f3df7;   /* Purple */
-  --brand-end:   #20a4ff;   /* Neon Blue */
-  scroll-behavior: smooth;
-}
-
-body {
-  @apply bg-[#0d0f1a] text-white antialiased; 
-  /* Dark futuristic background like Ancrew */
-}
-
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(90deg, var(--brand-start), var(--brand-mid), var(--brand-end));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Glass card */
-.glass-card {
-  @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl;
-}
-
-/* Hover glow */
-.hover-glow {
-  transition: 0.3s ease;
-}
-.hover-glow:hover {
-  box-shadow: 0 0 25px rgba(80, 80, 255, 0.5);
-  transform: translateY(-4px);
-}
-
-/* Futuristic neon border card */
-.neon-border {
-  border: 1px solid transparent;
-  background: linear-gradient(#0d0f1a, #0d0f1a) padding-box,
-    linear-gradient(90deg, var(--brand-start), var(--brand-end)) border-box;
-  border-radius: 16px;
-}
-
-/* Fade-up effect */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+@layer base {
+  :root {
+    /* Defaulting to Dark Theme values directly */
+    --background: 224 71% 4%;
+    /* #020817 */
+    --foreground: 210 40% 98%;
+    --card: 224 71% 4%;
+    --card-foreground: 210 40% 98%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    /* Blue-500 like */
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+    --radius: 0.5rem;
   }
 }
 
-.fade-up {
-  animation: fadeInUp 1s ease forwards;
-}
+@layer base {
+  * {
+    @apply border-border;
+  }
 
-/* Background futuristic lines */
-.futuristic-bg {
-  background-image: url("/src/assets/futuristic-lines.png");
-  background-size: cover;
-  background-position: center;
-  opacity: 0.35;
-}
-/* NAVBAR LINKS — futuristic hover glow */
-.nav-link {
-  position: relative;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.nav-link:hover {
-  color: #8ab4ff;
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0%;
-  height: 2px;
-  background: linear-gradient(90deg, #6c4efc, #1f8bff);
-  transition: width 0.3s;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-/* Gradient brand text */
-.gradient-text {
-  background: linear-gradient(90deg, #6c4efc 0%, #3d6bff 50%, #1fa4ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-/* NAVBAR LINKS — futuristic hover glow */
-.nav-link {
-  position: relative;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.nav-link:hover {
-  color: #8ab4ff;
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0%;
-  height: 2px;
-  background: linear-gradient(90deg, #6c4efc, #1f8bff);
-  transition: width 0.3s;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-/* Gradient brand text */
-.gradient-text {
-  background: linear-gradient(90deg, #6c4efc 0%, #3d6bff 50%, #1fa4ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.futuristic-bg {
-  background: radial-gradient(circle at 20% 20%, #7b5bff30 0%, transparent 60%),
-              radial-gradient(circle at 80% 70%, #4c8dff30 0%, transparent 60%),
-              #030014;
-}
-.fade-up {
-  animation: fadeInUp 0.8s ease forwards;
-  opacity: 0;
-}
-
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-/* Smooth Scroll */
-:root { scroll-behavior: smooth; }
-
-/* Base body */
-body { @apply bg-[#040714] text-white antialiased; }
-
-/* Gradient Text */
-.gradient-text {
-  background: linear-gradient(90deg, #6c4efc, #4b2ee6, #26a8ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Fade-up animation */
-.fade-up {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s ease forwards;
-}
-
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-/* Glass effect container */
-.glass-panel {
-  @apply w-full max-w-lg mx-auto flex flex-col gap-6 p-10 rounded-3xl;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(14px);
-  box-shadow: 0 0 30px rgba(90, 75, 255, 0.3);
-}
-
-/* futuristic strip background */
-.futuristic-bg {
-  background: radial-gradient(circle at top, #1a1a45, #050516 70%);
-}
-
-/* each stat item */
-.stat-item {
-  @apply flex flex-col items-center justify-center py-6 rounded-2xl;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.2));
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  transition: 0.3s ease;
-}
-
-.stat-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 18px rgba(85, 50, 255, 0.5);
-}
-
-/* number */
-.stat-number {
-  @apply text-5xl font-extrabold text-white;
-  background: -webkit-linear-gradient(#6a4bff, #3f6cf7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* label */
-.stat-label {
-  @apply mt-2 text-white/60 text-lg tracking-wide;
-}
-
-/* fade-up animation */
-.fade-up {
-  animation: fadeUp 1.2s ease forwards;
-}
-
-@keyframes fadeUp {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-/* Optional neon glow */
-.neon-text {
-  text-shadow: 0 0 10px rgba(59, 130, 246, 0.8),
-               0 0 20px rgba(59, 130, 246, 0.6);
-}
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0px); }
-}
-
-.animate-float {
-  animation: float 4s ease-in-out infinite;
-}
-
-.delay-200 {
-  animation-delay: 0.2s;
-}
-
-.delay-500 {
-  animation-delay: 0.5s;
+  body {
+    @apply bg-background text-foreground antialiased;
+    /* Global subtle gradient */
+    background: radial-gradient(circle at 50% 0%, #1e293b 0%, #020817 50%, #020817 100%);
+    background-attachment: fixed;
+  }
 }
