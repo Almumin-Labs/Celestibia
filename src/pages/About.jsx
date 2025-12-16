@@ -21,10 +21,10 @@ const About = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-black text-white overflow-x-hidden pt-20 font-sans">
+        <div className="min-h-screen bg-transparent text-white overflow-x-hidden pt-20 font-sans">
 
             {/* Hero Section - Matching Reference Design */}
-            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16 lg:pt-16 lg:pb-24">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
 
                     {/* Left Column: Content */}
@@ -32,46 +32,31 @@ const About = () => {
                         initial="hidden"
                         animate="visible"
                         variants={fadeIn}
-                        className="space-y-8"
+                        className="space-y-6"
                     >
                         {/* Headline */}
                         <h1 className="text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-white">
-                            Transform ideas into <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Impactful Solutions</span>
+                            About Us
                         </h1>
 
                         {/* Description */}
-                        <p className="text-xl leading-relaxed max-w-xl text-gray-300">
-                            Welcome to Celestibia Solutions. We blend creativity with technical excellence to deliver software solutions that are not just functional, but future-ready.
-                        </p>
+                        <div className="space-y-6 text-lg leading-relaxed text-gray-300">
+                            <p className="text-xl font-medium text-white">
+                                Welcome to Celestibia Solutions — where innovation meets precision, and ideas transform into impactful digital solutions.
+                            </p>
+                            <p>
+                                At Celestibia Solutions, we are driven by a passion for empowering businesses through smart technology, seamless design, and scalable engineering. We blend creativity with technical excellence to deliver software solutions that are not just functional, but future-ready.
+                            </p>
+                            <p>
+                                Our team of expert developers, problem-solvers, and strategists work closely with clients to turn challenges into opportunities. Whether it’s building intuitive web and mobile applications, modernizing legacy systems, enhancing cloud capabilities, or automating workflows — we deliver solutions with speed, security, and simplicity at the core.
+                            </p>
+                        </div>
 
                         {/* Buttons */}
-                        <div className="flex flex-wrap items-center gap-4">
+                        <div className="flex flex-wrap items-center gap-4 pt-4">
                             <Button className="h-14 px-8 rounded-full bg-white hover:bg-gray-100 text-black text-lg font-medium transition-all shadow-lg hover:shadow-xl">
                                 Get Started <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
-                            <Button variant="outline" className="h-14 px-8 rounded-full border-gray-700 hover:bg-gray-800 text-white text-lg font-medium transition-all">
-                                Watch Video <Play className="ml-2 h-5 w-5 fill-current" />
-                            </Button>
-                        </div>
-
-                        {/* Social Proof */}
-                        <div className="flex items-center gap-6 pt-4">
-                            <div className="flex -space-x-4">
-                                {[1, 2, 3, 4].map((i) => (
-                                    <div key={i} className="h-12 w-12 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
-                                        <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="User" className="h-full w-full object-cover" />
-                                    </div>
-                                ))}
-                            </div>
-                            <div className="space-y-1">
-                                <p className="text-sm font-medium text-gray-100">Trusted by 50+ Companies</p>
-                                <div className="flex text-yellow-500">
-                                    {[1, 2, 3, 4, 5].map((i) => (
-                                        <Star key={i} className="h-4 w-4 fill-current" />
-                                    ))}
-                                </div>
-                            </div>
                         </div>
                     </motion.div>
 
@@ -164,17 +149,24 @@ const About = () => {
             </section >
 
             {/* Mission Section - Dark Theme */}
-            <section className="py-24 bg-gray-900">
+            <section className="py-24 bg-transparent">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 gap-16 items-center">
                         <div className="space-y-6">
-                            <h2 className="text-3xl md:text-4xl font-bold text-white">Driven by Passion, <br />Powered by Technology</h2>
-                            <p className="text-gray-300 text-lg leading-relaxed">
-                                At Celestibia Solutions, we are driven by a passion for empowering businesses through smart technology, seamless design, and scalable engineering. We blend creativity with technical excellence to deliver software solutions that are not just functional, but future-ready.
-                            </p>
-                            <p className="text-gray-300 text-lg leading-relaxed">
-                                Our team of expert developers, problem-solvers, and strategists work closely with clients to turn challenges into opportunities. Whether it's building intuitive web and mobile applications, modernizing legacy systems, enhancing cloud capabilities, or automating workflows.
-                            </p>
+                            <h2 className="text-3xl md:text-4xl font-bold text-white">Our Mission</h2>
+                            <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
+                                <p>
+                                    Our mission is to help organizations leverage technology to unlock efficiency, agility, and new possibilities. We don’t just build products — we build partnerships, trust, and long-lasting value.
+                                </p>
+                                <div className="pt-4 border-l-2 border-blue-500 pl-6">
+                                    <p className="font-semibold text-white text-xl mb-2">
+                                        Let’s create something extraordinary together.
+                                    </p>
+                                    <p className="italic text-gray-400">
+                                        Celestibia Solutions — Shaping the future, one solution at a time.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                         <div className="grid grid-cols-2 gap-6">
                             {[
@@ -206,7 +198,7 @@ const About = () => {
             </section>
 
             {/* What We Believe - Dark Theme */}
-            <section className="py-24 bg-black">
+            <section className="py-24 bg-transparent">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">What We Believe</h2>
@@ -231,7 +223,7 @@ const About = () => {
             </section>
 
             {/* What We Do - Dark Theme */}
-            <section className="py-24 bg-gray-900 border-y border-gray-800">
+            <section className="py-24 bg-transparent border-y border-gray-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">What We Do</h2>
@@ -243,8 +235,7 @@ const About = () => {
                             { title: "Cloud & DevOps Solutions", icon: Cloud, color: "text-sky-400", bg: "bg-sky-500/10" },
                             { title: "Web & Mobile App Engineering", icon: Monitor, color: "text-indigo-400", bg: "bg-indigo-500/10" },
                             { title: "Automation & Process Optimization", icon: Settings, color: "text-yellow-400", bg: "bg-yellow-500/10" },
-                            { title: "Secure, Reliable Systems", icon: Shield, color: "text-green-400", bg: "bg-green-500/10" },
-                            { title: "High-Performance Architecture", icon: Cpu, color: "text-red-400", bg: "bg-red-500/10" }
+                            { title: "Secure, Reliable & High-Performance Systems", icon: Shield, color: "text-green-400", bg: "bg-green-500/10" }
                         ].map((item, index) => (
                             <div key={index} className="relative">
                                 <GlowingEffect
@@ -273,7 +264,7 @@ const About = () => {
 
 
             {/* DevOps Tools Animation - Dark Theme */}
-            <section className="py-24 overflow-hidden bg-black">
+            <section className="py-24 overflow-hidden bg-transparent">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Powering Your Infrastructure</h2>
                     <p className="text-gray-400">We work with the best-in-class DevOps and Cloud tools.</p>
@@ -305,12 +296,7 @@ const About = () => {
 
 
 
-            {/* Footer - Dark Theme */}
-            <footer className="py-12 border-t border-gray-800 bg-black">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <p className="text-gray-400">© 2024 Celestibia Solutions. All rights reserved.</p>
-                </div>
-            </footer>
+
         </div >
     );
 };

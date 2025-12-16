@@ -10,43 +10,63 @@ const Services = () => {
     const services = [
         {
             icon: Cloud,
-            title: "Cloud & DevOps Services",
+            title: "Cloud Infrastructure",
             tagline: "Scale with confidence",
-            description: "We'll handle the complexity of cloud infrastructure so you can focus on what matters - building great products. From seamless migrations to automated pipelines, we've got you covered.",
-            link: "/services/cloud-devops",
+            description: "Managed cloud services, migration, and optimization across AWS, Azure, and GCP.",
+            link: "/services/cloud",
             gradient: "from-blue-500 to-cyan-500",
             bgGradient: "from-blue-500/10 to-cyan-500/10",
-            features: ["Cloud Migration", "Managed Kubernetes", "CI/CD Pipelines", "Infrastructure Automation"]
+            features: ["Migration", "Management", "Cost Opt", "Security"]
+        },
+        {
+            icon: Layers,
+            title: "DevOps Solutions",
+            tagline: "Accelerate delivery",
+            description: "End-to-end DevOps automation, CI/CD pipelines, and Kubernetes management.",
+            link: "/services/devops",
+            gradient: "from-purple-500 to-pink-500",
+            bgGradient: "from-purple-500/10 to-pink-500/10",
+            features: ["CI/CD", "Kubernetes", "IaC", "Monitoring"]
         },
         {
             icon: Database,
-            title: "Data Engineering & AI/ML",
-            tagline: "Turn data into decisions",
-            description: "Your data tells a story. We help you listen to it. Build intelligent systems that learn, adapt, and deliver insights that drive real business outcomes.",
-            link: "/services/data-ai",
-            gradient: "from-green-400 to-blue-500",
-            bgGradient: "from-green-500/10 to-blue-500/10",
-            features: ["Data Pipelines", "Machine Learning", "Generative AI", "Business Intelligence"]
+            title: "Data Engineering",
+            tagline: "Turn data into value",
+            description: "Robust data pipelines, warehousing, and analytics infrastructure.",
+            link: "/services/data-engineering",
+            gradient: "from-green-400 to-emerald-500",
+            bgGradient: "from-green-500/10 to-emerald-500/10",
+            features: ["Pipelines", "Warehousing", "Real-time", "Governance"]
+        },
+        {
+            icon: Sparkles,
+            title: "AI & Machine Learning",
+            tagline: "Intelligent future",
+            description: "Custom AI solutions, predictive modeling, and generative AI integration.",
+            link: "/services/ai-ml",
+            gradient: "from-violet-500 to-fuchsia-500",
+            bgGradient: "from-violet-500/10 to-fuchsia-500/10",
+            features: ["GenAI", "ML Models", "Chatbots", "Computer Vision"]
         },
         {
             icon: Layers,
             title: "Application Services",
-            tagline: "Build for tomorrow, today",
-            description: "Legacy systems holding you back? Let's modernize together. We transform monoliths into microservices and build applications that scale as fast as your ambitions.",
+            tagline: "Modernize legacy",
+            description: "App modernization, microservices architecture, and performance monitoring.",
             link: "/services/application",
             gradient: "from-orange-400 to-red-500",
             bgGradient: "from-orange-500/10 to-red-500/10",
-            features: ["App Modernization", "Performance Monitoring", "Microservices", "Real-time Analytics"]
+            features: ["Modernization", "Microservices", "Performance", "Security"]
         },
         {
             icon: Shield,
             title: "Security Services",
-            tagline: "Sleep soundly at night",
-            description: "Security isn't just a feature - it's peace of mind. We protect your infrastructure like it's our own, with 24/7 monitoring and zero-trust architecture.",
+            tagline: "Zero trust security",
+            description: "Comprehensive security assessments, VAPT, and DevSecOps integration.",
             link: "/services/security",
-            gradient: "from-red-400 to-pink-500",
-            bgGradient: "from-red-500/10 to-pink-500/10",
-            features: ["Cloud Security", "VAPT", "DevSecOps", "Incident Response"]
+            gradient: "from-red-400 to-rose-500",
+            bgGradient: "from-red-500/10 to-rose-500/10",
+            features: ["Cloud Security", "VAPT", "Compliances", "Monitoring"]
         }
     ];
 
@@ -73,11 +93,11 @@ const Services = () => {
     };
 
     return (
-        <div className="min-h-screen bg-black text-white overflow-x-hidden">
+        <div className="min-h-screen bg-transparent text-white overflow-x-hidden">
             {/* Hero Section */}
             <section ref={heroRef} className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
                 {/* Animated Background Grid */}
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f1f1f_1px,transparent_1px),linear-gradient(to_bottom,#1f1f1f_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+                {/* Content */}
 
                 <div className="max-w-7xl mx-auto relative z-10">
                     <motion.div
@@ -203,7 +223,7 @@ const Services = () => {
             </section>
 
             {/* Why Choose Us */}
-            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-transparent relative overflow-hidden">
                 {/* Background decoration */}
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent" />
 

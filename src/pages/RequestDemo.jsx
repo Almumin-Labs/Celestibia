@@ -15,14 +15,14 @@ const RequestDemo = () => {
     const [submitted, setSubmitted] = useState(false);
 
     const interests = [
-        "Cloud Migration", "DevOps Implementation", "AI/ML Solutions", 
+        "Cloud Migration", "DevOps Implementation", "AI/ML Solutions",
         "Security Audit", "App Modernization", "Other"
     ];
 
     const toggleInterest = (interest) => {
         setFormData(prev => ({
             ...prev,
-            interests: prev.interests.includes(interest) 
+            interests: prev.interests.includes(interest)
                 ? prev.interests.filter(i => i !== interest)
                 : [...prev.interests, interest]
         }));
@@ -44,7 +44,7 @@ const RequestDemo = () => {
     };
 
     return (
-        <div className="min-h-screen bg-[#020817] text-white pt-24 pb-12 overflow-x-hidden relative">
+        <div className="min-h-screen bg-transparent text-white pt-24 pb-12 overflow-x-hidden relative">
             {/* Background Gradients */}
             <div className="fixed inset-0 pointer-events-none">
                 <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px]" />
@@ -63,13 +63,13 @@ const RequestDemo = () => {
                         <span>Schedule Your Personalized Demo</span>
                     </div>
                     <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 tracking-tight">
-                        See Celestibia in 
+                        See Celestibia in
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 ml-4">
                             Action
                         </span>
                     </h1>
                     <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                        Experience how our cutting-edge solutions can transform your business. 
+                        Experience how our cutting-edge solutions can transform your business.
                         Book a demo with our technical experts today.
                     </p>
                 </motion.div>
@@ -92,9 +92,9 @@ const RequestDemo = () => {
                                     <p className="text-gray-400 text-lg mb-8">
                                         We've received your request. One of our experts will be in touch shortly to schedule your demo.
                                     </p>
-                                    <Button 
+                                    <Button
                                         onClick={() => setSubmitted(false)}
-                                        variant="outline" 
+                                        variant="outline"
                                         className="border-white/20 hover:bg-white/10"
                                     >
                                         Book Another Demo
@@ -163,11 +163,10 @@ const RequestDemo = () => {
                                                     key={interest}
                                                     type="button"
                                                     onClick={() => toggleInterest(interest)}
-                                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                                                        formData.interests.includes(interest)
+                                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${formData.interests.includes(interest)
                                                             ? "bg-blue-600 text-white"
                                                             : "bg-white/5 text-gray-400 hover:bg-white/10"
-                                                    }`}
+                                                        }`}
                                                 >
                                                     {interest}
                                                 </button>
@@ -187,8 +186,8 @@ const RequestDemo = () => {
                                         />
                                     </div>
 
-                                    <Button 
-                                        type="submit" 
+                                    <Button
+                                        type="submit"
                                         className="w-full h-12 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-all"
                                     >
                                         Schedule Demo <ArrowRight className="ml-2 w-4 h-4" />

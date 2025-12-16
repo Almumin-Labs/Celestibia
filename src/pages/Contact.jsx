@@ -26,7 +26,7 @@ export default function Contact() {
     };
 
     return (
-        <div className="min-h-screen bg-black text-white pt-20 overflow-x-hidden">
+        <div className="min-h-screen bg-transparent text-white pt-20 overflow-x-hidden">
             {/* Hero Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto">
@@ -159,41 +159,39 @@ export default function Contact() {
 
                             {/* Contact Cards */}
                             <div className="space-y-4">
-                                <div className="bg-gray-900 rounded-2xl p-6 border border-gray-800 hover:border-gray-700 transition-colors">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-blue-500/50 transition-colors">
                                     <div className="flex items-start gap-4">
                                         <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center">
                                             <Mail className="h-6 w-6 text-blue-400" />
                                         </div>
                                         <div>
                                             <h4 className="font-semibold mb-1">Email Us</h4>
-                                            <p className="text-gray-400 text-sm">contact@celestibia.com</p>
-                                            <p className="text-gray-400 text-sm">support@celestibia.com</p>
+                                            <p className="text-gray-400 text-sm">hello@celestibia.com</p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="bg-gray-900 rounded-2xl p-6 border border-gray-800 hover:border-gray-700 transition-colors">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-green-500/50 transition-colors">
                                     <div className="flex items-start gap-4">
                                         <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center">
                                             <Phone className="h-6 w-6 text-green-400" />
                                         </div>
                                         <div>
                                             <h4 className="font-semibold mb-1">Call Us</h4>
-                                            <p className="text-gray-400 text-sm">+1 (555) 123-4567</p>
-                                            <p className="text-gray-400 text-sm">Mon-Fri, 9am-6pm EST</p>
+                                            <p className="text-gray-400 text-sm">+91 9156680961</p>
+                                            <p className="text-gray-400 text-sm">Mon-Fri, 9am-6pm IST</p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="bg-gray-900 rounded-2xl p-6 border border-gray-800 hover:border-gray-700 transition-colors">
+                                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-purple-500/50 transition-colors">
                                     <div className="flex items-start gap-4">
                                         <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center">
                                             <MapPin className="h-6 w-6 text-purple-400" />
                                         </div>
                                         <div>
                                             <h4 className="font-semibold mb-1">Visit Us</h4>
-                                            <p className="text-gray-400 text-sm">123 Tech Avenue</p>
-                                            <p className="text-gray-400 text-sm">San Francisco, CA 94105</p>
+                                            <p className="text-gray-400 text-sm">Pune, India</p>
                                         </div>
                                     </div>
                                 </div>
@@ -226,12 +224,7 @@ export default function Contact() {
                 </div>
             </section>
 
-            {/* Footer */}
-            <footer className="py-12 border-t border-gray-800 bg-black">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <p className="text-gray-400">© 2024 Celestibia Solutions. All rights reserved.</p>
-                </div>
-            </footer>
+
         </div>
     );
 }

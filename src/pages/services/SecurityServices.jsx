@@ -55,7 +55,7 @@ const SecurityServices = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-black text-white overflow-x-hidden pt-20">
+        <div className="min-h-screen bg-transparent text-white overflow-x-hidden pt-20">
             {/* Hero Section */}
             <section className="relative py-24 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto">
@@ -80,7 +80,7 @@ const SecurityServices = () => {
             </section>
 
             {/* Cloud Security */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-900">
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-transparent">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-12">
                         <h2 className="text-4xl font-bold mb-4">Cloud Security</h2>
@@ -98,7 +98,7 @@ const SecurityServices = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-red-500 transition-all duration-300 group"
+                                className="bg-black/40 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:border-red-500 transition-all duration-300 group"
                             >
                                 <div className="bg-gradient-to-br from-red-500/10 to-pink-500/10 w-14 h-14 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                                     <service.icon className="h-7 w-7 text-red-400" />
@@ -112,7 +112,7 @@ const SecurityServices = () => {
             </section>
 
             {/* Cybersecurity */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900">
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-transparent">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-12">
                         <h2 className="text-4xl font-bold mb-4">Cybersecurity</h2>
@@ -130,7 +130,7 @@ const SecurityServices = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="bg-black border border-gray-800 rounded-xl p-6 hover:border-orange-500 transition-all duration-300 group"
+                                className="bg-black/40 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:border-orange-500 transition-all duration-300 group"
                             >
                                 <div className="bg-gradient-to-br from-orange-500/10 to-red-500/10 w-14 h-14 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                                     <service.icon className="h-7 w-7 text-orange-400" />
@@ -144,7 +144,7 @@ const SecurityServices = () => {
             </section>
 
             {/* Key Features */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black">
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-transparent">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div>
@@ -173,7 +173,7 @@ const SecurityServices = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="bg-gradient-to-br from-red-500/10 to-pink-500/10 rounded-2xl p-8 border border-gray-800">
+                        <div className="bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl p-8">
                             <h3 className="text-2xl font-bold mb-6">Security First Approach</h3>
                             <p className="text-gray-400 leading-relaxed mb-6">
                                 We integrate security at every layer of your infrastructure, from cloud environments
@@ -199,7 +199,7 @@ const SecurityServices = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-red-600 to-pink-600">
+            <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-red-900/50 to-pink-900/50 border-y border-white/10 backdrop-blur-md">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to secure your infrastructure?</h2>
                     <p className="text-xl mb-8 text-red-100">Contact us to fortify your security posture and protect your business.</p>

@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    font-family: 'Inter', sans-serif;
     /* Defaulting to Dark Theme values directly */
     --background: 224 71% 4%;
     /* #020817 */

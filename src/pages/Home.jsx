@@ -10,6 +10,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import EngagementModels from "@/components/EngagementModels";
+import { useNavigate } from 'react-router-dom';
+import { MovingBorderButton } from "@/components/ui/moving-border";
+
 
 // Animation Variants
 const fadeIn = {
@@ -29,24 +32,13 @@ const staggerContainer = {
 
 const Home = () => {
     const [activeTab, setActiveTab] = useState('who');
+    const navigate = useNavigate();
     return (
-        <div className="min-h-screen bg-[#020817] text-white overflow-x-hidden">
+        <div className="min-h-screen bg-transparent text-white overflow-x-hidden">
 
             {/* Hero Section */}
             <section className="relative h-screen flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                    <video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-full object-cover opacity-40"
-                    >
-                        <source src="/videos/hero-bg.mp4" type="video/mp4" />
-                    </video>
-                    {/* Gradient overlay to blend video into the dark background */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#020817]/80 via-[#020817]/50 to-background" />
-                </div>
+                {/* Removed Video Background */}
 
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <motion.div
@@ -72,12 +64,25 @@ const Home = () => {
 
                         <motion.div
                             variants={fadeIn}
-                            className="flex flex-col sm:flex-row gap-4 justify-center"
+                            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
                         >
-                            <Button size="lg" className="bg-blue-600 hover:bg-blue-500 text-lg px-8 py-6 rounded-full">
+                            <MovingBorderButton
+                                borderRadius="9999px"
+                                className="bg-white text-black text-lg font-medium hover:bg-gray-200 transition-colors"
+                                containerClassName="h-14 w-48"
+                                borderClassName="bg-[radial-gradient(#0ea5e9_40%,transparent_60%)]"
+                                rx="30px"
+                                ry="30px"
+                                onClick={() => navigate('/request-demo')}
+                            >
                                 Get Started <ArrowRight className="ml-2 h-5 w-5" />
-                            </Button>
-                            <Button size="lg" variant="outline" className="border-white/20 hover:bg-white/10 text-lg px-8 py-6 rounded-full">
+                            </MovingBorderButton>
+
+                            <Button
+                                onClick={() => navigate('/services')}
+                                variant="outline"
+                                className="bg-black/40 border-white/20 text-white hover:bg-white/10 h-14 px-8 rounded-full text-lg font-medium transition-all backdrop-blur-sm"
+                            >
                                 View Services
                             </Button>
                         </motion.div>
@@ -86,7 +91,7 @@ const Home = () => {
             </section>
 
             {/* About Us Section - GitHub Universe Aesthetic */}
-            <section className="py-32 relative bg-black overflow-hidden selection:bg-green-500/30">
+            <section className="py-32 relative bg-transparent overflow-hidden selection:bg-green-500/30">
                 {/* Universe Background Effects */}
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-green-500/10 rounded-full blur-[120px] mix-blend-screen animate-pulse-slow" />
@@ -300,7 +305,7 @@ const Home = () => {
             </section>
 
             {/* Dedicated Resources & Engagement Models */}
-            <section className="py-32 relative bg-black overflow-hidden">
+            <section className="py-32 relative bg-transparent overflow-hidden">
                 <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -340,7 +345,7 @@ const Home = () => {
             </section>
 
             {/* Software Development Lifecycle Section */}
-            <section className="py-32 relative bg-black overflow-hidden">
+            <section className="py-32 relative bg-transparent overflow-hidden">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="text-center mb-20">
                         <motion.div
@@ -427,7 +432,7 @@ const Home = () => {
 
 
             {/* Partners & Certifications */}
-            <section className="py-24 bg-black border-t border-white/5">
+            <section className="py-24 bg-transparent border-t border-white/5">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
                     {/* Handshake Icon in Circle */}
@@ -445,7 +450,7 @@ const Home = () => {
                         Recognized for technical excellence and certified expertise across major cloud platforms.
                     </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div className="flex flex-wrap justify-center gap-12">
                         {/* AWS */}
                         <div className="flex flex-col items-center gap-6 group">
                             <div className="relative h-40 w-40 rounded-full bg-white/5 border border-white/10 flex items-center justify-center p-8 transition-all duration-300 group-hover:border-[#FF9900]/50 group-hover:bg-white/10">
@@ -493,18 +498,45 @@ const Home = () => {
                                 <p className="text-sm text-gray-400">Certified Partner</p>
                             </div>
                         </div>
+
+                        {/* GitLab */}
+                        <div className="flex flex-col items-center gap-6 group">
+                            <div className="relative h-40 w-40 rounded-full bg-white/5 border border-white/10 flex items-center justify-center p-8 transition-all duration-300 group-hover:border-[#FC6D26]/50 group-hover:bg-white/10">
+                                <div className="absolute inset-0 rounded-full bg-[#FC6D26]/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                <img
+                                    src="https://upload.wikimedia.org/wikipedia/commons/e/e1/GitLab_logo.svg"
+                                    alt="GitLab"
+                                    className="w-full h-full object-contain relative z-10 grayscale group-hover:grayscale-0 transition-all duration-300"
+                                />
+                            </div>
+                            <div className="text-center">
+                                <h3 className="text-2xl font-bold text-white mb-1">GitLab</h3>
+                                <p className="text-sm text-gray-400">Select Partner</p>
+                            </div>
+                        </div>
+
+                        {/* Veeam */}
+                        <div className="flex flex-col items-center gap-6 group">
+                            <div className="relative h-40 w-40 rounded-full bg-white/5 border border-white/10 flex items-center justify-center p-8 transition-all duration-300 group-hover:border-[#00B336]/50 group-hover:bg-white/10">
+                                <div className="absolute inset-0 rounded-full bg-[#00B336]/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                <img
+                                    src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Veeam_Software_logo_2018.svg"
+                                    alt="Veeam Backup"
+                                    className="w-full h-full object-contain relative z-10 grayscale group-hover:grayscale-0 transition-all duration-300"
+                                />
+                            </div>
+                            <div className="text-center">
+                                <h3 className="text-2xl font-bold text-white mb-1">Veeam</h3>
+                                <p className="text-sm text-gray-400">ProPartner</p>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
             </section>
 
 
-            {/* Footer */}
-            <footer className="py-12 border-t border-white/10 bg-black">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <p className="text-gray-500">© 2024 Celestibia Solutions. All rights reserved.</p>
-                </div>
-            </footer>
+
 
         </div>
     );

@@ -10,7 +10,7 @@ const Blog = () => {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-[#020817] text-white pt-20 flex items-center justify-center">
+            <div className="min-h-screen bg-transparent text-white pt-20 flex items-center justify-center">
                 <div className="text-center">
                     <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
                     <p className="text-gray-400">Loading posts...</p>
@@ -19,7 +19,7 @@ const Blog = () => {
         );
     }
     return (
-        <div className="min-h-screen bg-[#020817] text-white pt-20">
+        <div className="min-h-screen bg-transparent text-white pt-20">
             {/* Hero Section */}
             <section className="relative py-20 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-[#020817] pointer-events-none" />

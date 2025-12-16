@@ -26,10 +26,10 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Services', href: '/services', hasDropdown: true },
-    { name: 'Industry', href: '/industry', hasDropdown: true },
-    { name: 'Resources', href: '/resources', hasDropdown: true },
     { name: 'About Us', href: '/about', hasDropdown: false },
+    { name: 'Services', href: '/services', hasDropdown: true },
+    { name: 'Industry', href: '/industry', hasDropdown: false },
+    { name: 'Resources', href: '/resources', hasDropdown: true },
     { name: 'Blog', href: '/blog', hasDropdown: false },
   ];
 
@@ -61,11 +61,11 @@ const Navbar = () => {
             <Link to="/" className="flex items-center gap-2 group">
               <img
                 src="/src/assets/logo.jpeg.png"
-                alt="Celestibia Logo"
+                alt="Celestibia Solution Logo"
                 className="w-10 h-10 object-contain rounded-md group-hover:scale-105 transition-transform"
               />
               <span className={`text-xl font-bold tracking-wide ${logoText}`}>
-                Celestibia
+                Celestibia Solution
               </span>
             </Link>
 
@@ -81,10 +81,16 @@ const Navbar = () => {
                       {link.name === 'Services' && (
                         <>
                           <DropdownMenuItem className="focus:bg-white/10 cursor-pointer" asChild>
-                            <Link to="/services/cloud-devops" className="w-full">Cloud & DevOps</Link>
+                            <Link to="/services/cloud" className="w-full">Cloud Services</Link>
                           </DropdownMenuItem>
                           <DropdownMenuItem className="focus:bg-white/10 cursor-pointer" asChild>
-                            <Link to="/services/data-ai" className="w-full">Data Engineering & AI/ML</Link>
+                            <Link to="/services/devops" className="w-full">DevOps Solutions</Link>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem className="focus:bg-white/10 cursor-pointer" asChild>
+                            <Link to="/services/data-engineering" className="w-full">Data Engineering</Link>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem className="focus:bg-white/10 cursor-pointer" asChild>
+                            <Link to="/services/ai-ml" className="w-full">AI & Machine Learning</Link>
                           </DropdownMenuItem>
                           <DropdownMenuItem className="focus:bg-white/10 cursor-pointer" asChild>
                             <Link to="/services/application" className="w-full">Application Services</Link>
@@ -94,11 +100,11 @@ const Navbar = () => {
                           </DropdownMenuItem>
                         </>
                       )}
-                      {link.name !== 'Services' && (
+                      {link.name === 'Resources' && (
                         <>
-                          <DropdownMenuItem className="focus:bg-white/10 cursor-pointer">Option 1</DropdownMenuItem>
-                          <DropdownMenuItem className="focus:bg-white/10 cursor-pointer">Option 2</DropdownMenuItem>
-                          <DropdownMenuItem className="focus:bg-white/10 cursor-pointer">Option 3</DropdownMenuItem>
+                          <DropdownMenuItem className="focus:bg-white/10 cursor-pointer" asChild>
+                            <Link to="/resources/case-studies" className="w-full">Case Studies</Link>
+                          </DropdownMenuItem>
                         </>
                       )}
                     </DropdownMenuContent>
@@ -129,8 +135,8 @@ const Navbar = () => {
             )}
 
             <Link to="/contact">
-              <Button size="sm" className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white rounded-md px-5 font-medium transition-all shadow-[0_0_15px_rgba(14,165,233,0.3)] h-9">
-                Get Celestibia free
+              <Button size="sm" className="bg-blue-500 hover:bg-blue-600 text-white rounded-md px-5 font-medium transition-all shadow-[0_0_15px_rgba(59,130,246,0.5)] h-9">
+                Get Started
               </Button>
             </Link>
           </div>
@@ -158,8 +164,8 @@ const Navbar = () => {
                     <Link to="/login" className="text-lg font-medium hover:text-[#0ea5e9] transition-colors">Log in</Link>
                   )}
                   <Link to="/contact">
-                    <Button className="w-full bg-[#0ea5e9] hover:bg-[#0284c7] text-white">
-                      Get Celestibia free
+                    <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">
+                      Get Started
                     </Button>
                   </Link>
                 </div>

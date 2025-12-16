@@ -70,7 +70,7 @@ const ApplicationServices = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-black text-white overflow-x-hidden pt-20">
+        <div className="min-h-screen bg-transparent text-white overflow-x-hidden pt-20">
             {/* Hero Section */}
             <section className="relative py-24 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto">
@@ -95,7 +95,7 @@ const ApplicationServices = () => {
             </section>
 
             {/* Application Modernization */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-900">
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-transparent">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-12">
                         <h2 className="text-4xl font-bold mb-4">Application Modernization</h2>
@@ -110,7 +110,7 @@ const ApplicationServices = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-orange-500 transition-all duration-300 group"
+                                className="bg-black/40 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:border-orange-500 transition-all duration-300 group"
                             >
                                 <div className="bg-gradient-to-br from-orange-500/10 to-red-500/10 w-14 h-14 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                                     <service.icon className="h-7 w-7 text-orange-400" />
@@ -124,7 +124,7 @@ const ApplicationServices = () => {
             </section>
 
             {/* Performance Monitoring */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900">
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-transparent">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-12">
                         <h2 className="text-4xl font-bold mb-4">Performance Monitoring</h2>
@@ -142,7 +142,7 @@ const ApplicationServices = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="bg-black border border-gray-800 rounded-xl p-6 hover:border-cyan-500 transition-all duration-300 group"
+                                className="bg-black/40 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:border-cyan-500 transition-all duration-300 group"
                             >
                                 <div className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 w-14 h-14 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                                     <service.icon className="h-7 w-7 text-cyan-400" />
@@ -156,7 +156,7 @@ const ApplicationServices = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-orange-600 to-red-600">
+            <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-orange-900/50 to-red-900/50 border-y border-white/10 backdrop-blur-md">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to modernize your applications?</h2>
                     <p className="text-xl mb-8 text-orange-100">Contact us to enhance your application performance and reliability.</p>
