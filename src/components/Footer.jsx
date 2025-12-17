@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Twitter, Instagram, Linkedin, Phone, Mail, MapPin } from 'lucide-react';
+import logo from '@/assets/logo.jpeg.png';
 
 const Footer = () => {
   return (
@@ -12,7 +13,7 @@ const Footer = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <div className="h-10 w-10 rounded-full bg-blue-500 overflow-hidden">
-                <img src="/src/assets/logo.jpeg.png" alt="Celestibia" className="h-full w-full object-cover" />
+                <img src={logo} alt="Celestibia" className="h-full w-full object-cover" />
               </div>
               <h3 className="text-xl font-bold text-white">Let's Chat</h3>
             </div>

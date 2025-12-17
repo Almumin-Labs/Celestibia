@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, ArrowRight, User } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import logo from '@/assets/logo.jpeg.png';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   DropdownMenu,
@@ -60,7 +61,7 @@ const Navbar = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 group">
               <img
-                src="/src/assets/logo.jpeg.png"
+                src={logo}
                 alt="Celestibia Solution Logo"
                 className="w-10 h-10 object-contain rounded-md group-hover:scale-105 transition-transform"
               />
