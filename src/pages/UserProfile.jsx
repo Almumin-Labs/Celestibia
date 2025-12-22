@@ -19,14 +19,14 @@ const UserProfile = () => {
     // Initial State derived from user or defaults
     const [profileData, setProfileData] = useState({
         bio: "Passionate developer focused on building intuitive and scalable web applications. I love exploring new technologies and solving complex problems with clean code.",
-        location: "San Francisco, CA",
+        location: "India",
         github: "https://github.com",
         twitter: "https://twitter.com",
         linkedin: "https://linkedin.com",
         portfolio: "https://celestibia.com",
-        blogsCount: 23,
-        followers: "1.2k",
-        following: 48
+        blogsCount: 0,
+        followers: 0,
+        following: 0
     });
 
     // Edit Form State
@@ -37,8 +37,17 @@ const UserProfile = () => {
         // Load from local storage if available for persistence demo
         const saved = localStorage.getItem('celestibia_user_profile');
         if (saved) {
-            setProfileData(JSON.parse(saved));
-            setEditForm(JSON.parse(saved)); // Sync edit form
+            const parsedData = JSON.parse(saved);
+            // reset stats to 0 as requested ("backend integration pending")
+            const updatedData = {
+                ...parsedData,
+                blogsCount: 0,
+                followers: 0,
+                following: 0,
+                location: "India"
+            };
+            setProfileData(updatedData);
+            setEditForm(updatedData); // Sync edit form
         }
     }, []);
 

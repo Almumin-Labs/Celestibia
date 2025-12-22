@@ -32,17 +32,6 @@ const BlogDetail = () => {
         loadPost();
     }, [id, getPostById]);
 
-    if (loading) {
-        return (
-            <div className="min-h-screen bg-[#020817] text-white pt-20 flex items-center justify-center">
-                <div className="text-center">
-                    <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                    <p className="text-gray-400">Loading post...</p>
-                </div>
-            </div>
-        );
-    }
-
     if (notFound) {
         return (
             <div className="min-h-screen bg-[#020817] flex items-center justify-center text-white">
@@ -56,6 +45,17 @@ const BlogDetail = () => {
                         <ArrowLeft className="w-4 h-4 mr-2" />
                         Back to Blog
                     </button>
+                </div>
+            </div>
+        );
+    }
+
+    if (loading || !post) {
+        return (
+            <div className="min-h-screen bg-[#020817] text-white pt-20 flex items-center justify-center">
+                <div className="text-center">
+                    <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p className="text-gray-400">Loading post...</p>
                 </div>
             </div>
         );
