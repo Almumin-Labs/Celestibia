@@ -1,6 +1,4 @@
-"use client";
-
-import React from "react";
+import { useId } from "react";
 import { cn } from "@/lib/utils";
 
 export function GridPattern({
@@ -8,18 +6,18 @@ export function GridPattern({
     height = 40,
     x = -1,
     y = -1,
-    strokeDasharray = "0",
+    strokeDasharray = 0,
     squares,
     className,
     ...props
 }) {
-    const id = React.useId();
+    const id = useId();
 
     return (
         <svg
             aria-hidden="true"
             className={cn(
-                "pointer-events-none absolute inset-0 h-full w-full fill-white/5 stroke-white/10",
+                "pointer-events-none absolute inset-0 h-full w-full fill-gray-400/30 stroke-gray-400/30",
                 className
             )}
             {...props}
@@ -43,10 +41,10 @@ export function GridPattern({
             <rect width="100%" height="100%" strokeWidth={0} fill={`url(#${id})`} />
             {squares && (
                 <svg x={x} y={y} className="overflow-visible">
-                    {squares.map(([x, y], index) => (
+                    {squares.map(([x, y]) => (
                         <rect
                             strokeWidth="0"
-                            key={`${x}-${y}-${index}`}
+                            key={`${x}-${y}`}
                             width={width - 1}
                             height={height - 1}
                             x={x * width + 1}
@@ -58,3 +56,5 @@ export function GridPattern({
         </svg>
     );
 }
+
+export default GridPattern;

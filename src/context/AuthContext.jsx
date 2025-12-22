@@ -17,8 +17,8 @@ export const AuthProvider = ({ children }) => {
         setLoading(false);
     }, []);
 
-    const login = (email) => {
-        const userData = { email, name: email.split('@')[0] };
+    const login = (email, role = 'user') => {
+        const userData = { email, name: email.split('@')[0], role };
         setUser(userData);
         localStorage.setItem('celestibia_user', JSON.stringify(userData));
     };

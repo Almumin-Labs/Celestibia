@@ -53,11 +53,7 @@ const About = () => {
                         </div>
 
                         {/* Buttons */}
-                        <div className="flex flex-wrap items-center gap-4 pt-4">
-                            <Button className="h-14 px-8 rounded-full bg-white hover:bg-gray-100 text-black text-lg font-medium transition-all shadow-lg hover:shadow-xl">
-                                Get Started <ArrowRight className="ml-2 h-5 w-5" />
-                            </Button>
-                        </div>
+
                     </motion.div>
 
                     {/* Right Column: Visual Graphic (Cards Composition) */}

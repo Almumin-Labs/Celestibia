@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
 import { useBlog } from '@/context/BlogContext';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -90,15 +91,15 @@ const AdminDashboard = () => {
     );
 
     return (
-        <div className="min-h-screen bg-[#FAFAFA] dark:bg-[#020817]">
-            {/* Top Navigation Bar - Medium Style */}
-            <nav className="sticky top-0 z-50 bg-white dark:bg-[#0A0F1E] border-b border-gray-200 dark:border-white/10">
+        <div className="min-h-screen bg-gray-50 dark:bg-black">
+            {/* Top Navigation Bar - Minimalist */}
+            <nav className="sticky top-0 z-50 bg-white dark:bg-black border-b border-gray-200 dark:border-white/10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
                         <div className="flex items-center gap-8">
-                            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-                                Celestibia <span className="text-sm font-normal text-gray-500">Admin</span>
-                            </h1>
+                            <Link to="/" className="text-xl font-bold text-gray-900 dark:text-white tracking-tight hover:opacity-80 transition-opacity">
+                                Celestibia <span className="text-gray-400 font-normal">Admin</span>
+                            </Link>
                             <div className="hidden md:flex items-center gap-1">
                                 {[
                                     { id: 'overview', label: 'Overview', icon: BarChart3 },
@@ -111,9 +112,9 @@ const AdminDashboard = () => {
                                             setActiveTab(tab.id);
                                             setShowEditor(false);
                                         }}
-                                        className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === tab.id
-                                                ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white'
-                                                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                                        className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-all ${activeTab === tab.id
+                                            ? 'bg-black dark:bg-white text-white dark:text-black'
+                                            : 'text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white'
                                             }`}
                                     >
                                         <tab.icon className="w-4 h-4" />
@@ -123,9 +124,9 @@ const AdminDashboard = () => {
                             </div>
                         </div>
                         <div className="flex items-center gap-3">
-                            <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 dark:bg-white/5">
-                                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-sm font-bold text-white">
-                                    {user?.name?.charAt(0) || 'A'}
+                            <div className="hidden md:flex items-center gap-2">
+                                <div className="flex items-center justify-center h-8 w-8 rounded-full bg-black dark:bg-white text-white dark:text-black font-bold border border-gray-200 dark:border-white/10">
+                                    {user?.name ? user.name.charAt(0).toUpperCase() : 'A'}
                                 </div>
                                 <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{user?.name || 'Admin'}</span>
                             </div>
@@ -133,7 +134,7 @@ const AdminDashboard = () => {
                                 onClick={logout}
                                 variant="ghost"
                                 size="sm"
-                                className="text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400"
+                                className="text-gray-500 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400"
                             >
                                 <LogOut className="w-4 h-4" />
                             </Button>
@@ -161,20 +162,20 @@ const AdminDashboard = () => {
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: index * 0.1 }}
-                                        className="bg-white dark:bg-white/5 rounded-2xl p-6 border border-gray-200 dark:border-white/10 hover:shadow-lg dark:hover:shadow-blue-500/10 transition-all"
+                                        className="bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-xl p-6 hover:border-black/20 dark:hover:border-white/20 transition-all"
                                     >
                                         <div className="flex items-center justify-between mb-4">
-                                            <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center`}>
-                                                <stat.icon className="w-6 h-6 text-white" />
+                                            <div className="w-10 h-10 rounded-lg bg-gray-50 dark:bg-white/5 flex items-center justify-center border border-gray-100 dark:border-white/5">
+                                                <stat.icon className="w-5 h-5 text-black dark:text-white" />
                                             </div>
-                                            <span className="text-sm font-medium text-green-600 dark:text-green-400">
+                                            <span className="text-xs font-medium px-2 py-1 rounded-full bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white">
                                                 {stat.change}
                                             </span>
                                         </div>
-                                        <h3 className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
+                                        <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">
                                             {stat.title}
                                         </h3>
-                                        <p className="text-3xl font-bold text-gray-900 dark:text-white">
+                                        <p className="text-3xl font-bold text-gray-900 dark:text-white tracking-tight">
                                             {stat.value}
                                         </p>
                                     </motion.div>
@@ -182,61 +183,63 @@ const AdminDashboard = () => {
                             </div>
 
                             {/* Quick Actions */}
-                            <div className="bg-white dark:bg-white/5 rounded-2xl p-6 border border-gray-200 dark:border-white/10">
-                                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Quick Actions</h2>
+                            <div className="bg-white dark:bg-zinc-900/50 rounded-xl border border-gray-200 dark:border-white/10 p-8">
+                                <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-6">Quick Actions</h2>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                     <button
                                         onClick={handleNewPost}
-                                        className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 transition-all"
+                                        className="flex items-center justify-center gap-3 p-4 rounded-lg bg-black dark:bg-white text-white dark:text-black hover:opacity-90 transition-all shadow-sm"
                                     >
-                                        <Plus className="w-5 h-5" />
-                                        <span className="font-medium">New Blog Post</span>
+                                        <Plus className="w-4 h-4" />
+                                        <span className="font-medium text-sm">New Blog Post</span>
                                     </button>
                                     <button
                                         onClick={() => setActiveTab('services')}
-                                        className="flex items-center gap-3 p-4 rounded-xl bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-white/20 transition-all"
+                                        className="flex items-center justify-center gap-3 p-4 rounded-lg bg-white dark:bg-black border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/5 transition-all"
                                     >
-                                        <Briefcase className="w-5 h-5" />
-                                        <span className="font-medium">Manage Services</span>
+                                        <Briefcase className="w-4 h-4" />
+                                        <span className="font-medium text-sm">Manage Services</span>
                                     </button>
                                     <button
                                         onClick={() => setActiveTab('posts')}
-                                        className="flex items-center gap-3 p-4 rounded-xl bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-white/20 transition-all"
+                                        className="flex items-center justify-center gap-3 p-4 rounded-lg bg-white dark:bg-black border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/5 transition-all"
                                     >
-                                        <FileText className="w-5 h-5" />
-                                        <span className="font-medium">View All Posts</span>
+                                        <FileText className="w-4 h-4" />
+                                        <span className="font-medium text-sm">View All Posts</span>
                                     </button>
                                 </div>
                             </div>
 
                             {/* Recent Posts */}
-                            <div className="bg-white dark:bg-white/5 rounded-2xl p-6 border border-gray-200 dark:border-white/10">
-                                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Recent Posts</h2>
-                                <div className="space-y-3">
+                            <div className="bg-white dark:bg-zinc-900/50 rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden">
+                                <div className="p-6 border-b border-gray-100 dark:border-white/5">
+                                    <h2 className="text-lg font-bold text-gray-900 dark:text-white">Recent Posts</h2>
+                                </div>
+                                <div className="divide-y divide-gray-100 dark:divide-white/5">
                                     {posts.slice(0, 5).map((post) => (
                                         <div
                                             key={post.id}
-                                            className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
+                                            className="flex items-center justify-between p-4 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
                                         >
-                                            <div className="flex items-center gap-3 flex-1">
+                                            <div className="flex items-center gap-4 flex-1">
                                                 <img
                                                     src={post.image}
                                                     alt={post.title}
-                                                    className="w-12 h-12 rounded-lg object-cover"
+                                                    className="w-10 h-10 rounded-md object-cover ring-1 ring-gray-100 dark:ring-white/10"
                                                 />
                                                 <div>
-                                                    <h4 className="font-medium text-gray-900 dark:text-white line-clamp-1">
+                                                    <h4 className="font-medium text-sm text-gray-900 dark:text-white line-clamp-1">
                                                         {post.title}
                                                     </h4>
-                                                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                                                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
                                                         {post.category} • {post.date}
                                                     </p>
                                                 </div>
                                             </div>
-                                            <div className="flex items-center gap-2">
-                                                <span className={`px-2 py-1 rounded-full text-xs font-medium ${post.published
-                                                        ? 'bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400'
-                                                        : 'bg-gray-100 dark:bg-gray-500/20 text-gray-700 dark:text-gray-400'
+                                            <div className="flex items-center gap-3">
+                                                <span className={`px-2 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-semibold border ${post.published
+                                                    ? 'bg-black/5 dark:bg-white/10 text-gray-900 dark:text-white border-black/10 dark:border-white/10'
+                                                    : 'bg-transparent text-gray-500 border-gray-200'
                                                     }`}>
                                                     {post.published ? 'Published' : 'Draft'}
                                                 </span>
@@ -259,12 +262,12 @@ const AdminDashboard = () => {
                             {/* Header */}
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Blog Posts</h2>
-                                    <p className="text-gray-600 dark:text-gray-400 mt-1">Manage your blog content</p>
+                                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">Blog Posts</h2>
+                                    <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Manage and organize your content</p>
                                 </div>
                                 <Button
                                     onClick={handleNewPost}
-                                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
+                                    className="bg-black hover:bg-gray-800 text-white rounded-lg px-6"
                                 >
                                     <Plus className="w-4 h-4 mr-2" />
                                     New Post
@@ -273,13 +276,13 @@ const AdminDashboard = () => {
 
                             {/* Search */}
                             <div className="relative">
-                                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                                 <input
                                     type="text"
                                     placeholder="Search posts..."
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
-                                    className="w-full pl-12 pr-4 py-3 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white"
                                 />
                             </div>
 
@@ -289,25 +292,25 @@ const AdminDashboard = () => {
                                     <motion.div
                                         key={post.id}
                                         layout
-                                        className="bg-white dark:bg-white/5 rounded-xl p-6 border border-gray-200 dark:border-white/10 hover:shadow-lg dark:hover:shadow-blue-500/10 transition-all"
+                                        className="bg-white dark:bg-black rounded-xl p-6 border border-gray-200 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 transition-all"
                                     >
                                         <div className="flex gap-6">
                                             <img
                                                 src={post.image}
                                                 alt={post.title}
-                                                className="w-32 h-32 rounded-lg object-cover"
+                                                className="w-24 h-24 rounded-lg object-cover grayscale hover:grayscale-0 transition-all duration-300"
                                             />
                                             <div className="flex-1">
                                                 <div className="flex items-start justify-between mb-2">
                                                     <div>
-                                                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                                                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                                                             {post.title}
                                                         </h3>
-                                                        <p className="text-gray-600 dark:text-gray-400 line-clamp-2 mb-3">
+                                                        <p className="text-gray-500 dark:text-gray-400 text-sm line-clamp-2 mb-3 leading-relaxed">
                                                             {post.excerpt}
                                                         </p>
-                                                        <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
-                                                            <span className="px-2 py-1 rounded-full bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-400 font-medium">
+                                                        <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
+                                                            <span className="px-2 py-1 rounded bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white font-medium">
                                                                 {post.category}
                                                             </span>
                                                             <span>{post.date}</span>
@@ -317,9 +320,9 @@ const AdminDashboard = () => {
                                                     <div className="flex items-center gap-2">
                                                         <button
                                                             onClick={() => handleTogglePublish(post)}
-                                                            className={`p-2 rounded-lg transition-colors ${post.published
-                                                                    ? 'bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400'
-                                                                    : 'bg-gray-100 dark:bg-gray-500/20 text-gray-700 dark:text-gray-400'
+                                                            className={`p-2 rounded-md transition-all ${post.published
+                                                                ? 'text-black dark:text-white hover:bg-gray-100 dark:hover:bg-white/10'
+                                                                : 'text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10'
                                                                 }`}
                                                             title={post.published ? 'Unpublish' : 'Publish'}
                                                         >
@@ -327,13 +330,13 @@ const AdminDashboard = () => {
                                                         </button>
                                                         <button
                                                             onClick={() => handleEditPost(post)}
-                                                            className="p-2 rounded-lg bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-400 hover:bg-blue-200 dark:hover:bg-blue-500/30 transition-colors"
+                                                            className="p-2 rounded-md text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
                                                         >
                                                             <Edit className="w-4 h-4" />
                                                         </button>
                                                         <button
                                                             onClick={() => handleDeletePost(post.id)}
-                                                            className="p-2 rounded-lg bg-red-100 dark:bg-red-500/20 text-red-700 dark:text-red-400 hover:bg-red-200 dark:hover:bg-red-500/30 transition-colors"
+                                                            className="p-2 rounded-md text-gray-500 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors"
                                                         >
                                                             <Trash2 className="w-4 h-4" />
                                                         </button>

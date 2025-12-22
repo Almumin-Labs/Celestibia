@@ -21,8 +21,8 @@ const Blog = () => {
     return (
         <div className="min-h-screen bg-transparent text-white pt-20">
             {/* Hero Section */}
-            <section className="relative py-20 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-[#020817] pointer-events-none" />
+            <section className="relative py-20 overflow-hidden z-10">
+                <div className="absolute inset-0 bg-transparent pointer-events-none" />
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}

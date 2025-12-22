@@ -108,7 +108,7 @@ const CaseStudies = () => {
                         variants={fadeIn}
                         className="text-left"
                     >
-                        <h2 className="text-xl md:text-2xl font-bold text-blue-500 mb-2">Celestibia Solutions Pvt</h2>
+                        <h2 className="text-xl md:text-2xl font-bold text-blue-500 mb-2">Celestibia Solutions</h2>
                         <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
                             Business <br />
                             <span className="text-white">Case Study</span>

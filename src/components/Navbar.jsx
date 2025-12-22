@@ -34,12 +34,15 @@ const Navbar = () => {
     { name: 'Blog', href: '/blog', hasDropdown: false },
   ];
 
-  const isLightPage = location.pathname === '/about';
-  const textColor = 'text-white';
-  const hoverColor = 'hover:text-blue-400';
-  const logoBg = 'bg-white text-black';
-  const logoText = 'text-white';
-  const borderColor = 'border-white/5';
+  /* Update logic to include profile page for light/dark handling */
+  const isLightPage = location.pathname === '/profile';
+
+  // Dynamic colors based on page theme
+  const textColor = isLightPage ? 'text-gray-900' : 'text-white';
+  const hoverColor = isLightPage ? 'hover:text-blue-600' : 'hover:text-blue-400';
+  const logoText = isLightPage ? 'text-gray-900' : 'text-white';
+  const borderColor = isLightPage ? 'border-gray-200' : 'border-white/5';
+  const mobileMenuBg = isLightPage ? 'bg-white text-gray-900' : 'bg-[#020817] text-white';
 
   if (location.pathname.startsWith('/dashboard')) {
     return null;
@@ -50,7 +53,9 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300 border-b",
         borderColor,
-        scrolled ? "bg-[#020817]/95 backdrop-blur-md py-2 shadow-md" : "bg-transparent py-4"
+        scrolled
+          ? (isLightPage ? "bg-white/95 backdrop-blur-md py-2 shadow-md" : "bg-[#020817]/95 backdrop-blur-md py-2 shadow-md")
+          : "bg-transparent py-4"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -126,8 +131,8 @@ const Navbar = () => {
           {/* Right Side: Actions */}
           <div className="hidden md:flex items-center gap-6">
             {user ? (
-              <Link to="/dashboard" className={`text-sm font-medium transition-colors ${textColor} ${hoverColor}`}>
-                Dashboard
+              <Link to={user.role === 'admin' ? '/dashboard' : '/profile'} className={`flex items-center justify-center h-9 w-9 rounded-full bg-black text-white font-bold shadow-lg hover:scale-105 transition-transform border border-white/10`}>
+                {user.name ? user.name.charAt(0).toUpperCase() : <User className="h-5 w-5" />}
               </Link>
             ) : (
               <Link to="/login" className={`text-sm font-medium transition-colors ${textColor} ${hoverColor}`}>
@@ -160,7 +165,7 @@ const Navbar = () => {
                   ))}
                   <div className="h-px bg-white/10 my-2" />
                   {user ? (
-                    <Link to="/dashboard" className="text-lg font-medium hover:text-[#0ea5e9] transition-colors">Dashboard</Link>
+                    <Link to={user.role === 'admin' ? '/dashboard' : '/profile'} className="text-lg font-medium hover:text-[#0ea5e9] transition-colors">{user.role === 'admin' ? 'Dashboard' : 'Profile'}</Link>
                   ) : (
                     <Link to="/login" className="text-lg font-medium hover:text-[#0ea5e9] transition-colors">Log in</Link>
                   )}

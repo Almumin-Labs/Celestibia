@@ -187,7 +187,7 @@ const BlogEditor = ({ post, onClose }) => {
                         {/* Content */}
                         <div>
                             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                Content * (HTML supported)
+                                Content
                             </label>
                             <textarea
                                 name="content"
@@ -195,8 +195,8 @@ const BlogEditor = ({ post, onClose }) => {
                                 value={formData.content}
                                 onChange={handleChange}
                                 rows={12}
-                                placeholder="Write your content here... You can use HTML tags like <h2>, <p>, <ul>, <li>, etc."
-                                className="w-full px-4 py-3 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none font-mono text-sm"
+                                placeholder="Start writing your engaging story here..."
+                                className="w-full px-4 py-3 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none text-sm leading-relaxed"
                             />
                         </div>
 
@@ -283,7 +283,7 @@ const BlogEditor = ({ post, onClose }) => {
                             </Button>
                             <Button
                                 type="submit"
-                                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
+                                className="bg-black hover:bg-gray-800 text-white"
                             >
                                 <Save className="w-4 h-4 mr-2" />
                                 {post ? 'Update Post' : 'Create Post'}

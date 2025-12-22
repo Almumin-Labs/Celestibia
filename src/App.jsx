@@ -23,6 +23,9 @@ import Footer from '@/components/Footer';
 import Blog from '@/pages/Blog';
 import BlogDetail from '@/pages/BlogDetail';
 import RequestDemo from '@/pages/RequestDemo';
+import UserProfile from '@/pages/UserProfile';
+import ForgotPassword from '@/pages/ForgotPassword';
+import SignUp from '@/pages/SignUp';
 
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth();
@@ -51,13 +54,7 @@ const GlobalBackground = () => {
       height={40}
       x={-1}
       y={-1}
-      squares={[
-        [4, 4],
-        [5, 1],
-        [8, 2],
-        [5, 3],
-        [5, 5],
-      ]}
+
       className={cn(
         "[mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
         "fixed inset-0 h-full w-full opacity-75 mix-blend-screen pointer-events-none z-0",
@@ -94,6 +91,9 @@ function App() {
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:id" element={<BlogDetail />} />
                 <Route path="/request-demo" element={<RequestDemo />} />
+                <Route path="/profile" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/signup" element={<SignUp />} />
                 <Route
                   path="/dashboard"
                   element={
